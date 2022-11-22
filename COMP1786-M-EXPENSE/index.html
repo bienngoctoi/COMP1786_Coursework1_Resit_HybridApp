@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+
+    <title>App Manage Trip</title>
+</head>
+
+<body>
+    <!-- https://www.flaticon.com/ -->
+
+    <!-- PAGE "HOME" -->
+    <div data-role="page" id="page-home">
+        <div data-role="panel" data-display="overlay" id="panel" >
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Traveling App</h2>
+                <img src="img/LOGO.jpg" alt="Logo" width="75%">
+            </div>
+            <hr>
+
+            <ul data-role="listview">
+                <li data-icon="false">
+                    <a href="#page-home" data-transition="none" class="active"><span><img src="img/home.png" style="width: 10%;margin-right: 10px">Home</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-create" data-transition="none"><span><img src="img/plus.png" style="width: 10%;margin-right: 10px">New Trip</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-list" data-transition="none"><span><img src="img/grid.png" style="width: 10%;margin-right: 10px">Trip List</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-about" data-transition="none"><span><img src="img/info-button.png" style="width: 10%;margin-right: 10px">About</span></a>
+                </li>
+            </ul>
+
+            <div class="shortcut" style="margin-top: 30px">
+                <div class="shortcut-item" style="margin-left: -15px">
+                    <a id="btn-reset" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/arrows-circle.png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+
+                <div class="shortcut-item">
+                    <a id="btn-backup" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/cloud-backup-up-arrow (1).png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+            </div>
+
+            <br><br><hr>
+            <p><strong><img src="icon/boy.png" style="width: 20px;height: 20px"/></strong> Biền Ngọc Tới</p>
+            <p style="display: flex"><strong><img src="icon/email.png" style="width: 20px;height: 20px"/></strong> <a style="margin-left: 3px" href="mailto:toibngcs18895@fpt.edu.vn">toibngcs18895@fpt.edu.vn</a></p>
+        </div>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div style="float: right;">
+                <img style="width: 35px;height: 35px; margin: 7px;border-radius: 100%;" src="img/LOGO.jpg" />
+                <p style="float: right;margin-top: 14px">Traveling App</p>
+            </div>
+            <div style="margin-left: 5px; margin-right: 5px;float: left;">
+                <a style="border: none; background-color: transparent;" id="panel-open"
+                    class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon">Open Panel</a>
+            </div>
+        </div>
+
+        <div data-role="main">
+
+            <img style="width: 90%; height: 700px;" src="img/background.gif">
+            <!-- <img style="width: 115%;height: 770px;" src="img/Background.jpg"> -->
+            <!-- <div class="shortcut">
+                <div class="shortcut-item">
+                    <a href="#page-create" data-transition="none" class="ui-btn ui-alt-icon ui-icon-plus ui-nodisc-icon ui-btn-icon-top"></a>
+                </div>
+            </div> -->
+
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist active">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">New</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon">List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "CREATE NEW ACCOUNT" -->
+    <div data-role="page" id="page-create">
+        <div data-role="panel" data-display="overlay" id="panel">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Traveling App</h2>
+                <img src="img/LOGO.jpg" alt="Logo" width="75%">
+            </div>
+
+            <ul data-role="listview">
+                <li data-icon="false">
+                    <a href="#page-home" data-transition="none"><span><img src="img/home.png" style="width: 10%;margin-right: 10px">Home</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-create" data-transition="none" class="active"><span><img src="img/plus.png" style="width: 10%;margin-right: 10px">New Trip</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-list" data-transition="none"><span><img src="img/grid.png" style="width: 10%;margin-right: 10px">Trip List</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-about" data-transition="none"><span><img src="img/info-button.png" style="width: 10%;margin-right: 10px">About</span></a>
+                </li>
+            </ul>
+
+            <div class="shortcut" style="margin-top: 30px">
+                <div class="shortcut-item" style="margin-left: -15px">
+                    <a id="btn-reset" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/arrows-circle.png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+
+                <div class="shortcut-item">
+                    <a id="btn-backup" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/cloud-backup-up-arrow (1).png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+            </div>
+
+            <br><br><hr>
+            <p><strong><img src="icon/boy.png" style="width: 20px;height: 20px"/></strong> Biền Ngọc Tới</p>
+            <p style="display: flex"><strong><img src="icon/email.png" style="width: 20px;height: 20px"/></strong> <a style="margin-left: 3px" href="mailto:toibngcs18895@fpt.edu.vn">toibngcs18895@fpt.edu.vn</a></p>
+        </div>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="" role="banner" class="ui-header ui-bar-inherit ui-header-fixed slidedown">
+            <div style="float: right;">
+                <img style="width: 35px;height: 35px; margin: 7px;border-radius: 100%;" src="img/LOGO.jpg">
+                <p style="float: right;margin-top: 14px">Traveling App</p>
+            </div>
+            <div style="float: left;">
+                <a style="border: none; background-color: transparent;" id="panel-open" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon">Open Panel</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <!-- Registration Form -->
+            <form id="frm-register">
+                <label class="small-text">Trip Name</label>
+                <input type="text" id="name" data-clear-btn="true" placeholder="Enter trip name here..." required>
+
+                <fieldset class="ui-grid-a" style="overflow: visible;">
+                    <div class="ui-block-a" style="padding-right: 5px;">
+                        <label class="small-text">Destination</label>
+                        <input type="text" placeholder="Enter destination here..." id="destination"
+                            data-clear-btn="true" required>
+                    </div>
+
+                    <div class="ui-block-b" style="padding-left: 5px;">
+                        <label class="small-text">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                </fieldset>
+
+                <label class="small-text">Description</label>
+                <input type="text" placeholder="Enter description here..." id="description" data-clear-btn="true">
+
+                <fieldset class="container-create">
+                    <div class="select">
+                        <select id="quality">
+                        <option selected disabled>Quality</option>
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <select id="vehicle">
+                        <option selected disabled>Vehicle</option>
+                        <option value="Plane">Plane</option>
+                        <option value="Car">Car</option>
+                        <option value="Motobike">Motobike</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <label class="small-text">Advice</label>
+                <input type="text" id="advice" placeholder="Enter advice here...">
+
+                <label class="small-text">Required Risk Assessment</label>
+                <select id="risk" data-role="slider" data-mini="true">
+                    <option value="No" selected>No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <button type="submit" class="blue">Submit Form</button>
+            </form>
+
+            <!-- Confirm Registration -->
+            <form data-role="popup" id="frm-confirm" class="ui-content" data-overlay-theme="b">
+                <table style="text-align: left;">
+                    <tr>
+                        <th>Name</th>
+                        <td id="name"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Destination</th>
+                        <td id="destination"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Date</th>
+                        <td id="date"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Description</th>
+                        <td id="description"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Quantity</th>
+                        <td id="quality"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Vehicle</th>
+                        <td id="vehicle"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Risk Assessment</th>
+                        <td id="risk"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Advice</th>
+                        <td id="advice"></td>
+                    </tr>
+                </table>
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="padding: 5px;">
+                        <button type="button" id="edit">Edit</button>
+                    </div>
+
+                    <div class="ui-block-b" style="padding: 5px;">
+                        <button type="submit" class="blue">Confirm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon ui-state-persist active">New</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon">List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "TRIP LIST" -->
+    <div data-role="page" class="page-list-nav" id="page-list">
+        <div data-role="panel" data-display="overlay" id="panel">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Traveling App</h2>
+                <img src="img/LOGO.jpg" alt="Logo" width="75%">
+            </div>
+
+            <ul data-role="listview">
+                <li data-icon="false">
+                    <a href="#page-home" data-transition="none"><span><img src="img/home.png" style="width: 10%;margin-right: 10px">Home</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-create" data-transition="none"><span><img src="img/plus.png" style="width: 10%;margin-right: 10px">New Trip</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-list" data-transition="none" class="active"><span><img src="img/grid.png" style="width: 10%;margin-right: 10px">Trip List</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-about" data-transition="none"><span><img src="img/info-button.png" style="width: 10%;margin-right: 10px">About</span></a>
+                </li>
+            </ul>
+
+            <div class="shortcut" style="margin-top: 30px">
+                <div class="shortcut-item" style="margin-left: -15px">
+                    <a id="btn-reset-nav" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/arrows-circle.png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+
+                <div class="shortcut-item">
+                    <a id="btn-backup" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/cloud-backup-up-arrow (1).png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+            </div>
+
+            <br><br><hr>
+            <p><strong><img src="icon/boy.png" style="width: 20px;height: 20px"/></strong> Biền Ngọc Tới</p>
+            <p style="display: flex"><strong><img src="icon/email.png" style="width: 20px;height: 20px"/></strong> <a style="margin-left: 3px" href="mailto:toibngcs18895@fpt.edu.vn">toibngcs18895@fpt.edu.vn</a></p>
+        </div>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div style="float: right;">
+                <img style="width: 35px;height: 35px; margin: 7px;border-radius: 100%;" src="img/LOGO.jpg" />
+                <p style="float: right;margin-top: 14px">Traveling App</p>
+            </div>
+            <div style="margin-left: 5px; margin-right: 5px;float: left;">
+                <a style="border: none; background-color: transparent;" id="panel-open"
+                    class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon">Open Panel</a>
+            </div>
+        </div>
+
+        <div data-role="main">
+            <table>
+                <tr>
+                    <td style="width: 100%; padding: 0px;">
+                        <input type="text" placeholder="Filter trip..." id="txt-filter">
+                    </td>
+
+                    <td style="padding: 0px;">
+                        <button id="btn-filter-popup"></button>
+                    </td>
+
+                    <td style="padding: 0px;">
+                        <button class="ui-btn ui-icon-refresh ui-btn-icon-notext ui-nodisc-icon"
+                            id="btn-reset"></button>
+                    </td>
+                </tr>
+            </table>
+
+            <form data-role="popup" id="frm-search" class="ui-content" style="width: 80vw;" data-overlay-theme="b">
+                <label class="small-text">Trip Name</label>
+                <input type="text" id="name" data-clear-btn="true" placeholder="Enter trip name here...">
+
+                <label class="small-text">Destination</label>
+                <input type="text" placeholder="Enter destination here..." id="destination" data-clear-btn="true">
+
+                <label class="small-text">Date</label>
+                <input type="date" id="date">
+
+                <button type="submit" class="bluec">Search</button>
+            </form>
+
+            <ul id="list-trip" data-role="listview" class="ui-nodisc-icon ui-alt-icon"></ul>
+        </div>
+
+
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">New</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon ui-state-persist active">List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "TRIP DETAILS" -->
+    <div data-role="page" id="page-detail">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div style="margin-left: 5px; margin-right: 5px;">
+                <a href="#page-list" data-transition="none"
+                    class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon transparent">Back to list</a>
+
+                <a href="#option" data-rel="popup" style="float: right;" data-transition="none"
+                    class="ui-btn ui-btn-icon-notext ui-nodisc-icon btn-option">Option</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div data-role="popup" id="option">
+                <ul data-role="listview" data-icon="false">
+                    <li>
+                        <a href="#frm-update" data-rel="popup" data-position-to="window" id="btn-update-popup">
+                            <span>
+                                <img src="icon/pen.png" style="height: 15px;width: 15px;" />
+                            Update
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#frm-delete" data-rel="popup" data-position-to="window" id="btn-delete-popup">
+                            <span>
+                                <img src="icon/delete.png" style="height: 15px;width: 15px;" />
+                            Delete
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <form data-role="popup" id="frm-delete" data-overlay-theme="b">
+                <div data-role="header">
+                    <h1 style="padding-top: 20px;">Delete Trip?</h1>
+                </div>
+
+                <div role="main" class="ui-content">
+                    <h3>Are you sure you want to delete this trip?</h3>
+                    <p>This action cannot be undone.</p>
+                    <br>
+
+                    <p><em>Please type "<strong>YES</strong>" to delete this trip.</em></p>
+                    <input type="text" id="txt-confirm">
+
+                    <div style="text-align: right;">
+                        <a class="ui-btn ui-corner-all ui-btn-inline" data-rel="back">Cancel</a>
+
+                        <button type="submit" class="ui-btn ui-corner-all ui-btn-inline ui-disabled green"
+                            id="btn-delete">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <form id="frm-update" data-role="popup" class="ui-content" data-overlay-theme="b">
+                    <label class="small-text">Trip Name</label>
+                    <input type="text" id="name" data-clear-btn="true" placeholder="Enter trip name here..." required>
+
+                    <fieldset class="ui-grid-a" style="overflow: visible;">
+                        <div class="ui-block-a" style="padding-right: 5px;">
+                            <label class="small-text">Destination</label>
+                            <input type="text" placeholder="Enter destination here..." id="destination"
+                                data-clear-btn="true" required>
+                        </div>
+
+                        <div class="ui-block-b" style="padding-left: 5px;">
+                            <label class="small-text">Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                    </fieldset>
+
+                    <label class="small-text">Description</label>
+                    <input type="text" placeholder="Enter description here..." id="description" data-clear-btn="true">
+
+                    <fieldset class="container-create">
+                        <div class="select">
+                            <select id="quality">
+                            <option selected disabled>Quality</option>
+                            <option value="1">⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                            </select>
+                        </div>
+                        <div class="select">
+                            <select id="vehicle">
+                            <option selected disabled>Vehicle</option>
+                            <option value="Plane">Plane</option>
+                            <option value="Car">Car</option>
+                            <option value="Motobike">Motobike</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <label class="small-text">Advice</label>
+                    <input type="text" id="advice" placeholder="Enter advice here...">
+
+                    <label class="small-text">Required Risk Assessment</label>
+                    <select id="risk" data-role="slider" data-mini="true">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="padding: 5px;">
+                        <button type="button" id="cancel">Cancel</button>
+                    </div>
+
+                    <div class="ui-block-b" style="padding: 5px;">
+                        <button type="submit" class="green">Update</button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="detail">
+                <h1 id="name"></h1>
+
+                <table style="text-align: left;">
+                    <tr>
+                        <th><img src="img/icon-destination.png" height="20px"></th>
+                        <td id="destination"></td>
+                    </tr>
+
+                    <tr>
+                        <th><img src="img/icon-date.png" height="20px"></th>
+                        <td id="date"></td>
+                    </tr>
+
+                    <tr>
+                        <th><img src="img/icon-description.png" height="20px"></th>
+                        <td id="description"></td>
+                    </tr>
+
+                    <tr>
+                        <th><img src="img/icon-risk.png" height="20px"></th>
+                        <td id="risk"></td>
+                    </tr>
+
+                    <tr>
+                        <th><img src="icon/medal.png" height="20px"></th>
+                        <td id="quality"></td>
+                    </tr>
+
+                    <tr>
+                        <th><img src="icon/car.png" height="20px"></th>
+                        <td id="vehicle"></td>
+                    </tr>
+
+                    <tr>
+                        <th><img src="icon/idea.png" height="20px"></th>
+                        <td id="advice"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <table style="margin-top: 20px; text-align: left; margin-bottom: 5px;">
+                <tr style="width: 100%;">
+                    <td>
+                        <button style="font-size: 10px;" id="btn-toggle-expense"
+                            class="ui-btn ui-alt-icon ui-icon-plus ui-corner-all ui-btn-icon-notext ui-nodisc-icon ui-btn-inline ui-mini transparent">
+                            Toggle Expense
+                        </button>
+                    </td>
+
+                    <th style="font-size: 15px; width: 100%;">Show Expenses</th>
+
+                    <td>
+                        <a href="#frm-add-expense" data-rel="popup" data-position-to="window" id="btn-add-expense-popup"
+                            class="ui-btn ui-mini green ui-corner-all">
+                            <span>
+                                <img src="icon/plus.png" style="height: 10px;width: 10px;" />
+                                Add
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="expense" style="display: none;">
+                <div id="list">
+                    <form style="width: 100%;" id="frm-update-ex" data-role="popup" class="ui-content" data-overlay-theme="b">
+                        <div style="display: none;">
+                            <label class="small-text">ID</label>
+                            <input type="number" id="id" data-clear-btn="true" placeholder="Enter amount name here..." required>
+                        </div>
+
+                        <label class="small-text">Amount</label>
+                        <input type="number" id="amount" data-clear-btn="true" placeholder="Enter amount name here..." required>
+
+                        <label class="small-text">Expense Type</label>
+                        <div id="select-ex" style="width: 70%;margin-left: -10px">
+                            <select id="type" data-mini="true" required>
+                                <option disabled selected>Select option:</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Food">Food</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <label class="small-text">Price</label>
+                        <input type="number" placeholder="Enter price here..." id="price">
+
+                        <label class="small-text">Comment</label>
+                        <input type="text" placeholder="Enter comment here..." id="comment">
+
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="padding: 5px;">
+                                <button type="button" id="cancel">Cancel</button>
+                            </div>
+
+                            <div class="ui-block-b" style="padding: 5px;">
+                                <button type="submit" class="green">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <form id="frm-add-expense" data-role="popup" class="ui-content" data-overlay-theme="b">
+            <fieldset class="ui-grid-a" style="overflow: visible;">
+                <div class="ui-block-a" style="padding-right: 5px;">
+                    <label class="small-text">Amount</label>
+                    <input type="number" id="amount" data-clear-btn="true" placeholder="Enter amount here..." required>
+                </div>
+
+                <div class="ui-block-b" style="padding-left: 5px;">
+                    <label class="small-text">Expense Type</label>
+                    <select id="type" data-mini="true" required>
+                        <option value="Travel">Travel</option>
+                        <option value="Food">Food</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <label class="small-text">Price</label>
+            <input type="number" placeholder="Enter price here..." id="price" data-clear-btn="true">
+
+            <fieldset class="ui-grid-a" style="overflow: visible;">
+                <div class="ui-block-a" style="padding-right: 5px;">
+                    <label class="small-text">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="ui-block-b" style="padding-left: 5px;">
+                    <label class="small-text">Time</label>
+                    <input type="time" id="time" required>
+                </div>
+            </fieldset>
+
+            <label class="small-text">Comment</label>
+            <input type="text" placeholder="Enter comment here..." id="comment" data-clear-btn="true">
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a" style="padding: 5px;">
+                    <button type="button" id="cancel">Cancel</button>
+                </div>
+
+                <div class="ui-block-b" style="padding: 5px;">
+                    <button type="submit" class="green">Add</button>
+                </div>
+            </div>
+        </form>
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">New</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon ui-state-persist active">List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "ABOUT" -->
+    <div data-role="page" id="page-about">
+        <div data-role="panel" data-display="overlay" id="panel">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Traveling App</h2>
+                <img src="img/LOGO.jpg" alt="Logo" width="75%">
+            </div>
+
+            <ul data-role="listview">
+                <li data-icon="false">
+                    <a href="#page-home" data-transition="none"><span><img src="img/home.png" style="width: 10%;margin-right: 10px">Home</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-create" data-transition="none"><span><img src="img/plus.png" style="width: 10%;margin-right: 10px">New Trip</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-list" data-transition="none"><span><img src="img/grid.png" style="width: 10%;margin-right: 10px">Trip List</span></a>
+                </li>
+
+                <li data-icon="false">
+                    <a href="#page-about" data-transition="none" class="active"><span><img src="img/info-button.png" style="width: 10%;margin-right: 10px">About</span></a>
+                </li>
+            </ul>
+
+            <div class="shortcut" style="margin-top: 30px">
+                <div class="shortcut-item" style="margin-left: -15px">
+                    <a id="btn-reset" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/arrows-circle.png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+
+                <div class="shortcut-item">
+                    <a id="btn-backup" class="ui-btn" style="padding-top: 10px; width: 80%;">
+                        <img src="icon/cloud-backup-up-arrow (1).png" style="width: 20px; height: 20px" />
+                    </a>
+                </div>
+            </div>
+
+            <br><br><hr>
+            <p><strong><img src="icon/boy.png" style="width: 20px;height: 20px"/></strong> Biền Ngọc Tới</p>
+            <p style="display: flex"><strong><img src="icon/email.png" style="width: 20px;height: 20px"/></strong> <a style="margin-left: 3px" href="mailto:toibngcs18895@fpt.edu.vn">toibngcs18895@fpt.edu.vn</a></p>
+        </div>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div style="float: right;">
+                <img style="width: 35px;height: 35px; margin: 7px;border-radius: 100%;" src="img/LOGO.jpg" />
+                <p style="float: right;margin-top: 14px">Traveling App</p>
+            </div>
+            <div style="margin-left: 5px; margin-right: 5px;float: left;">
+                <a style="border: none; background-color: transparent;" id="panel-open"
+                    class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon">Open Panel</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content" style="text-align: center">
+            <h1>Traveling App</h1>
+            <img src="img/LOGO.jpg" alt="Logo" width="300px" style="margin-bottom: 25px;border-radius: 100%;">
+
+            <h2>Please contact me when there is a problem. Thank you very much!!!</h2>
+            <p style="margin-bottom: 7px;"><img style="margin-bottom: -3px;width: 15px;height: 15px" src="icon/boy.png" /> <strong><em>Biền Ngọc Tới</em></strong></p>
+            <p><img style="margin-bottom: -6px;width: 20px;height: 20px" src="icon/email.png" /><strong style="margin-left: 3px"><em><a href="mailto:toibngcs18895@fpt.edu.vn">toibngcs18895@fpt.edu.vn</a></em></strong></p>
+            <p style="margin-bottom: 7px; margin-top: 25px;"><img style="margin-bottom: -3px;width: 15px;height: 15px" src="icon/telephone.png" /><strong><em><a style="margin-left:5px" href="tel:+84365264445">+84 365 264 445</a></em></strong></p>
+            <p style="margin-top: 30px;"><em>Copyright &#169; 2022 Serco Honan. All rights reserved.</em></p>
+            <!-- <p><em>Create your own application for the courseworks.</em></p> -->
+            </div>
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">New</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon">List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon ui-state-persist active">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
